@@ -110,6 +110,8 @@ window.Microfiche = function(options) { this.initialize(options); return this; }
 
 Microfiche.VERSION = '1.8.2';
 
+CALIBRATE_FIRST_GUESS = 100000;
+
 $.extend(Microfiche.prototype, {
 
   // ## Default Options ##
@@ -153,7 +155,7 @@ $.extend(Microfiche.prototype, {
     this.el.data('microfiche', this);
     this.createFilm();
     this.createScreen();
-    this.calibrate(100000);
+    this.calibrate(CALIBRATE_FIRST_GUESS);
 
     if (this.film.width() <= this.screen.width()) {
       this.noScrollAlign(this.options.noScrollAlign);
